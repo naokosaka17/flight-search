@@ -9,5 +9,5 @@ function flightSearchConfig($stateProvider) {
 		templateUrl: 'js/features/flightSearch/flightSearch.html',
 		controller: 'FlightSearchCtrl',
 		controllerAs: 'FlightSearchVM'
-	})
+	});
 }

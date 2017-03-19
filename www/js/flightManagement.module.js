@@ -1,9 +1,8 @@
 angular
   .module('flightManagement', [
     'ionic',
-
-    'flightManagement.flightSearch',
-    'flightManagement.checkInReview'
+    'ngMaterial',
+    'flightManagement.flightSearch'
   ])
   .config(flightManagementConfig)
   .run(flightManagementRun);
