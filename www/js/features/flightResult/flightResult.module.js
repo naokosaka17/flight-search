@@ -1,4 +1,5 @@
 angular
 	.module('flightManagement.flightResult', [
-		'ngCordova'
+		'ngCordova',
+		'flightManagement.flightSearch'
 	]);

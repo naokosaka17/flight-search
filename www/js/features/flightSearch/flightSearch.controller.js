@@ -6,4 +6,5 @@ function FlightSearchCtrl() {
   var vm = this;
 
 
+
 }

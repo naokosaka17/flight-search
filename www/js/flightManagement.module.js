@@ -2,7 +2,9 @@ angular
   .module('flightManagement', [
     'ionic',
     'ngMaterial',
-    'flightManagement.flightSearch'
+    'flightManagement.flightSearch',
+    'flightManagement.flightResult',
+    'flightManagement.favoriteNote'
   ])
   .config(flightManagementConfig)
   .run(flightManagementRun);

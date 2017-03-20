@@ -12,10 +12,6 @@
 							No matches found for "{{ctrl.searchText}}".
 						</md-not-found>
 					</md-autocomplete>
-
-					<md-tooltip>
-						Pick the city you want to start from!
-					</md-tooltip>
 				</md-content>
 				<!-- The row for the budget and dates -->
 				<div layout>
@@ -26,19 +22,19 @@
 							</div>
 						</md-select>
 					</md-input-container>
-					<md-input-container flex>
-						<label>Start date</label>
-						<input type="date" ng-model="info.departuredate">
-					</md-input-container>
-					<md-input-container flex>
-						<label>End date</label>
-						<input type="date" ng-model="info.returndate">
-					</md-input-container>
 				</div>
+				<md-content layout-padding ng-cloak>
+  				<div layout-gt-xs="row">
+    				<div flex-gt-xs>
+      				<h4>Flight Date</h4>
+      				<md-datepicker ng-model="ctrl.myDate" md-placeholder="Enter date"></md-datepicker>
+    				</div>
+					</div>
+				</md-content>
 
-				<!-- The submit button -->
+				<!-- submit button -->
 				<div layout>
-					<md-button class="md-raised md-primary" ng-click="submit()">Search for destinations!</md-button>
+					<md-button class="md-raised md-primary" ui-sref="flightResult" ng-click="submit()">Search for destinations!</md-button>
 				</div>
 			</md-card-content>
 		</md-card>
