@@ -1,4 +1,3 @@
-'use strict';
 var SabreDevStudio = require('sabre-dev-studio');
 var sabreDevStudio = new SabreDevStudio({
   client_id:     'V1:8wdlxlxzwck14mlh:DEVCENTER:EXT',
@@ -29,6 +28,7 @@ module.exports = function(app) {
     '&departuredate=' + req.query.departuredate +
     '&returndate=' + req.query.returndate +
     '&maxfare=' + req.query.maxfare, res);
+    console.log(req.query);
   });
 
 };
