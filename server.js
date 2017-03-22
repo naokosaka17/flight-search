@@ -7,7 +7,7 @@
   require('./config/config_routes.js')(app);
 
 
-  // START THE SERVER
+  // start server
   console.log('-------------------------');
   app.listen(3000);
   console.log('localport:3000');
