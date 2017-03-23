@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <base href="/" />
+    <meta charset="utf-8">
+    <title>Fly like a butterfly</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+    <meta name="fragment" content="!">
+
+    <!-- angular JS library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.4.2/angular-ui-router.min.js"></script>
+    <!-- custom css -->
+    <link rel="stylesheet" href="createAHero/layout/assets/styles/layout.css">
+</head>
+
+<body ng-app="flight-search">
+    <ui-view></ui-view>
+
+    <script src="flight-search/flightManagement.module.js"></script>
+    <script src="flight-search/features/flightSearch/flightSearch.module.js"></script>
+    <script src="flight-search/features/flightSearch/flightSearch.route.js"></script>
+    <script src="flight-search/features/flightSearch/flightSearch.controller.js"></script>
+    <!-- <script src="flight-search/features/flightResult/flightResult.module.js"></script>
+        <script src="flight-search/features/flightResult/flightResult.route.js"></script>
+        <script src="flight-search/features/flightResult/flightResult.controller.js"></script>
+        <script src="flight-search/features/favoriteNote/favoriteNote.module.js"></script>
+        <script src="flight-search/features/favoriteNote/favoriteNote.route.js"></script>
+        <script src="flight-search/features/favoriteNote/favoriteNote.controller.js"></script>
+        <script src="flight-search/features/components/person/person.module.js"></script>
+        <script src="flight-search/features/components/person/person.directive.js"></script> -->
+
+</body>
+
+</html>

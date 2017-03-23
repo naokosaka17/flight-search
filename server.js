@@ -7,7 +7,6 @@ var express = require('express'),
 //express
 var app = express();
 
-    app.use(compression());
     app.use(morgan('dev'));
     app.use(bodyParser());
 
