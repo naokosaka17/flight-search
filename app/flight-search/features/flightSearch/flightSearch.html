@@ -8,12 +8,18 @@
 				<md-card-content>
 					<!-- The row for the city -->
 					<md-content>
-						<div layout-gt-sm="row">
-							<md-input-container class="md-block" flex-gt-sm>
-								<label>Origin place</label>
-								<input ng-model="info.place">
-							</md-input-container>
-						</div>
+						<md-autocomplete md-selected-item="ctrl.selectedItem" md-search-text="ctrl.searchText" md-items="item in ctrl.querySearch(ctrl.searchText)" md-item-text="item.display" md-min-length="0" placeholder="Where are you flying from?">
+							<md-item-template>
+								<span md-highlight-text="ctrl.searchText" md-highlight-flags="^i">{{item.display}}</span>
+							</md-item-template>
+							<md-not-found>
+								No matches found for "{{ctrl.searchText}}".
+							</md-not-found>
+						</md-autocomplete>
+						<md-tooltip>
+							Pick the city you want to start from!
+						</md-tooltip>
+
 					</md-content>
 					<!-- The row for the budget and dates -->
 					<div layout>

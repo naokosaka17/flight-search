@@ -59,7 +59,7 @@ function FlightSearchCtrl($scope, $http) {
     $http.post('/api/flight', $scope.info)
     .then(function(response){
 
-    })
+    });
   }
   console.log($scope.info);
 }

@@ -15,9 +15,6 @@ app.use(methodOverride());
 
 app.use(express.static(__dirname + '/app'));
 
-
-
-
 // get API from SabreDevStudio
 var SabreDevStudio = require('sabre-dev-studio');
 var sabre_dev_studio = new SabreDevStudio({
@@ -26,8 +23,6 @@ var sabre_dev_studio = new SabreDevStudio({
     uri: 'https://api.test.sabre.com'
 });
 var options = {};
-
-
 
 // start server
 console.log('-------------------------');
