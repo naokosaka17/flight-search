@@ -21,6 +21,7 @@
     "body-parser": "^1.17.1",
     "express": "^4.15.2",
     "method-override": "^2.3.7",
-    "morgan": "^1.8.1"
+    "morgan": "^1.8.1",
+    "sabre-dev-studio": "^1.2.0"
   }
 }

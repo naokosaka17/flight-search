@@ -9,11 +9,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
     <meta name="fragment" content="!">
+    <!-- Angular Material style sheet -->
+    <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css">
 
-    <!-- angular JS library -->
+    <!-- UI router -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.4.2/angular-ui-router.min.js"></script>
 
+    <!-- custom css -->
+    <link rel="stylesheet" href="flight-search/layout/assets/styles/layout.css">
+</head>
+
+<body ng-app="flightManagement">
+    <!-- main content -->
+    <ui-view></ui-view>
     <!-- Angular Material requires Angular.js Libraries -->
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.min.js"></script>
@@ -22,14 +31,6 @@
 
     <!-- Angular Material Library -->
     <script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>
-    <!-- custom css -->
-    <link rel="stylesheet" href="flight-search/layout/assets/styles/layout.css">
-</head>
-
-<body ng-app="flightManagement">
-    <!-- main content -->
-    <ui-view></ui-view>
-
     <script src="flight-search/flightManagement.module.js"></script>
     <script src="flight-search/features/flightSearch/flightSearch.module.js"></script>
     <script src="flight-search/features/flightSearch/flightSearch.route.js"></script>
