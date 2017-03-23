@@ -5,9 +5,9 @@ angular
     // angular material
     'ngMaterial',
     // features
-    'flightManagement.flightSearch',
-    'flightManagement.flightResult',
-    'flightManagement.favoriteNote'
+    'flightManagement.flightSearch'
+    // 'flightManagement.flightResult',
+    // 'flightManagement.favoriteNote'
   ])
   .config(flightManagementConfig)
 

@@ -6,6 +6,7 @@ var express = require('express'),
     express = require('express');
 //express
 var app = express();
+var port = 3000;
 
     app.use(morgan('dev'));
     app.use(bodyParser());
@@ -17,10 +18,6 @@ var app = express();
 
 // start server
 console.log('-------------------------');
-app.listen(3000);
-console.log('localport:3000');
-console.log('Started the server');
-process.on('uncaughtException', function(error) {
-    console.log(error.stack);
-    console.log(error);
+app.listen(port,function(){
+  console.log('listening on port:' + port);
 });

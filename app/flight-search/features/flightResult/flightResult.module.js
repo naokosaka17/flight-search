@@ -1,5 +1,5 @@
-angular
-	.module('flightManagement.flightResult', [
-		'ngCordova',
-		'flightManagement.flightSearch'
-	]);
+// angular
+// 	.module('flightManagement.flightResult', [
+// 		'ngCordova',
+// 		'flightManagement.flightSearch'
+// 	]);

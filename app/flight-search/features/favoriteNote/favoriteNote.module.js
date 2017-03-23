@@ -1,4 +1,4 @@
-angular
-	.module('flightManagement.favoriteNote', [
-		'ngCordova'
-	]);
+// angular
+// 	.module('flightManagement.favoriteNote', [
+// 		'ngCordova'
+// 	]);
