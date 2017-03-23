@@ -2,8 +2,7 @@ angular
   .module('flightManagement.flightSearch')
   .controller('FlightSearchCtrl', FlightSearchCtrl);
 
-function FlightSearchCtrl($scope) {
-
+function FlightSearchCtrl($scope, $http) {
   // Initialize the scope variables
   $scope.info = {
     origin: {},
@@ -55,4 +54,12 @@ function FlightSearchCtrl($scope) {
     show: '$1500',
     value: 1500
   }];
+
+  function submit() {
+    $http.post('/api/flight', $scope.info)
+    .then(function(response){
+
+    })
+  }
+  console.log($scope.info);
 }

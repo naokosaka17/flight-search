@@ -1,24 +1,19 @@
 <md-content>
 	<div flex="auto">
-		<h3 layout="row" layout-align="center center">Find your wings and fly like a butterfly</h3>
+		<h1 class="title" layout="row" layout-align="center center"> Fly like a butterfly</h1>
 		<!-- The content area -->
 		<div layout="row">
 			<!-- The main action happens here -->
 			<md-card flex ng-controller="FlightSearchCtrl">
 				<md-card-content>
-					<!-- The row for the city select autocomplete list -->
+					<!-- The row for the city -->
 					<md-content>
-						<md-autocomplete md-selected-item="ctrl.selectedItem" md-search-text="ctrl.searchText" md-items="item in ctrl.querySearch(ctrl.searchText)" md-item-text="item.display" md-min-length="0" placeholder="Where are you flying from?">
-							<md-item-template>
-								<span md-highlight-text="ctrl.searchText" md-highlight-flags="^i">{{item.display}}</span>
-							</md-item-template>
-							<md-not-found>
-								No matches found for "{{ctrl.searchText}}".
-							</md-not-found>
-						</md-autocomplete>
-						<md-tooltip>
-							Pick the city you want to start from!
-						</md-tooltip>
+						<div layout-gt-sm="row">
+							<md-input-container class="md-block" flex-gt-sm>
+								<label>Origin place</label>
+								<input ng-model="info.place">
+							</md-input-container>
+						</div>
 					</md-content>
 					<!-- The row for the budget and dates -->
 					<div layout>
