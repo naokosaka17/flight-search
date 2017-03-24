@@ -1,4 +1,4 @@
-angular.module('getLostApp', ['ngMaterial']).
+angular.module('flightSearch', ['ngMaterial']).
 controller('MainCtrl', function($rootScope, $scope, $mdToast, $animate, $http, $timeout, $q, $log) {
   'use strict';
   // Initialize the scope variables
