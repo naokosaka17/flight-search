@@ -9,7 +9,7 @@ angular
     // 'flightManagement.flightResult',
     // 'flightManagement.favoriteNote'
   ])
-  .config(flightManagementConfig)
+  .config(flightManagementConfig);
 
 function flightManagementConfig($urlRouterProvider) {
   // If the URL doesn't exist as a route redirect to

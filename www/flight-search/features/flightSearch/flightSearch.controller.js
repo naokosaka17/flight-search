@@ -57,65 +57,110 @@ function FlightSearchCtrl($rootScope, $scope, $mdToast, $animate, $http, $timeou
 
     // The main function that submits the data
     $scope.submit = function() {
-      $scope.error = null;
-      $scope.fareinfo = null;
+        $scope.error = null;
+        $scope.fareinfo = null;
 
-      $http.get('/api/v1/places?origin=' + $scope.ctrl.selectedItem.value +
-          '&departuredate=' + formatDate($scope.info.departuredate) +
-          '&returndate=' + formatDate($scope.info.returndate) +
-          '&maxfare=' + $scope.info.maxfare)
-        .success(function(data) {
-          $scope.results = data;
-          $scope.data = data.info;
+        $http.get('/api/v1/places?origin=' + $scope.ctrl.selectedItem.value +
+                '&departuredate=' + formatDate($scope.info.departuredate) +
+                '&returndate=' + formatDate($scope.info.returndate) +
+                '&maxfare=' + $scope.info.maxfare)
+            .success(function(data) {
+                $scope.results = data;
+                $scope.data = data.info;
 
-          if ($scope.results.status) {
-            $scope.fareinfo = JSON.parse($scope.data).FareInfo;
-            console.log($scope.fareinfo);
-            $scope.showSimpleToast('Successfully got flight info');
-          } else {
-            $scope.showSimpleToast('Error: ' +
-              JSON.parse($scope.data.data).message +
-              '. Try again!');
-          }
-        })
-        .error(function(err) {
-          $scope.showSimpleToast('Error: ' +
-            JSON.parse(err.data).message +
-            '. Try again!');
-        });
+                if ($scope.results.status) {
+                    $scope.fareinfo = JSON.parse($scope.data).FareInfo;
+                    console.log($scope.fareinfo);
+                    $scope.showSimpleToast('Successfully got flight info');
+                } else {
+                    $scope.showSimpleToast('Error: ' +
+                        JSON.parse($scope.data.data).message +
+                        '. Try again!');
+                }
+            })
+            .error(function(err) {
+                $scope.showSimpleToast('Error: ' +
+                    JSON.parse(err.data).message +
+                    '. Try again!');
+            });
     };
 
     var self = this;
     self.states = [];
 
     (function getCityInformation() {
-      var cities = [];
-      $http.get('/api/v1/cities').success(function(data) {
-        cities = (JSON.parse(data.info)).Cities || [];
-        self.states = cities.map(function(state) {
-          return {
-            value: state.code,
-            display: state.code + '-' + state.countryName
-          };
+        var cities = [];
+        $http.get('/api/v1/cities').success(function(data) {
+            cities = (JSON.parse(data.info)).Cities || [];
+            self.states = cities.map(function(state) {
+                return {
+                    value: state.code,
+                    display: state.code + '-' + state.countryName
+                };
+            });
+        }).error(function(err) {
+            $scope.showSimpleToast('Error: ' +
+                JSON.stringify(err) +
+                '. Try again!');
         });
-      }).error(function(err) {
-        $scope.showSimpleToast('Error: ' +
-          JSON.stringify(err) +
-          '. Try again!');
-      });
     })();
 
     self.querySearch = function(query) {
-      var results = query ?
-        self.states.filter(createFilterFor(query)) :
-        self.states;
+        var results = query ?
+            self.states.filter(createFilterFor(query)) :
+            self.states;
 
-      return results;
+        return results;
     };
 
     function createFilterFor(query) {
-      var lowercaseQuery = angular.lowercase(query);
-      return function filterFn(state) {
-        return ((angular.lowercase(state.value)).indexOf(lowercaseQuery) === 0);
-      };
+        var lowercaseQuery = angular.lowercase(query);
+        return function filterFn(state) {
+            return ((angular.lowercase(state.value)).indexOf(lowercaseQuery) === 0);
+        };
     }
+    // Helper function to format the date
+    function formatDate(date) {
+        var d = new Date(date),
+            month = '' + (d.getMonth() + 1),
+            day = '' + d.getDate(),
+            year = d.getFullYear();
+
+        if (month.length < 2) {
+            month = '0' + month;
+        }
+        if (day.length < 2) {
+            day = '0' + day;
+        }
+
+        return [year, month, day].join('-');
+    }
+
+    // Helper functions to show the toast message on success or error
+    (function toastHelper() {
+        $scope.toastPosition = {
+            bottom: false,
+            top: true,
+            left: false,
+            right: true,
+            fit: true
+        };
+
+        $scope.getToastPosition = function() {
+            return Object.keys($scope.toastPosition)
+                .filter(function(pos) {
+                    return $scope.toastPosition[pos];
+                })
+                .join(' ');
+        };
+
+        $scope.showSimpleToast = function(msg) {
+            $mdToast.show(
+                $mdToast.simple()
+                .content(msg)
+                .position($scope.getToastPosition())
+                .hideDelay(3000)
+            );
+        };
+    })();
+}
