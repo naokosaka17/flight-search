@@ -55,89 +55,67 @@ function FlightSearchCtrl($rootScope, $scope, $mdToast, $animate, $http, $timeou
         value: 1500
     }];
 
-    function submit() {
-        $http.post('/api/flight', $scope.info)
-            .then(function(response) {
+    // The main function that submits the data
+    $scope.submit = function() {
+      $scope.error = null;
+      $scope.fareinfo = null;
 
-            });
-    }
+      $http.get('/api/v1/places?origin=' + $scope.ctrl.selectedItem.value +
+          '&departuredate=' + formatDate($scope.info.departuredate) +
+          '&returndate=' + formatDate($scope.info.returndate) +
+          '&maxfare=' + $scope.info.maxfare)
+        .success(function(data) {
+          $scope.results = data;
+          $scope.data = data.info;
+
+          if ($scope.results.status) {
+            $scope.fareinfo = JSON.parse($scope.data).FareInfo;
+            console.log($scope.fareinfo);
+            $scope.showSimpleToast('Successfully got flight info');
+          } else {
+            $scope.showSimpleToast('Error: ' +
+              JSON.parse($scope.data.data).message +
+              '. Try again!');
+          }
+        })
+        .error(function(err) {
+          $scope.showSimpleToast('Error: ' +
+            JSON.parse(err.data).message +
+            '. Try again!');
+        });
+    };
 
     var self = this;
+    self.states = [];
 
-    self.simulateQuery = false;
-    self.isDisabled = false;
-
-    // list of `state` value/display objects
-    self.states = loadAll();
-    self.querySearch = querySearch;
-    self.selectedItemChange = selectedItemChange;
-    self.searchTextChange = searchTextChange;
-
-    self.newState = newState;
-
-    function newState(state) {
-        alert("Sorry! You'll need to create a Constitution for " + state + " first!");
-    }
-
-    // ******************************
-    // Internal methods
-    // ******************************
-
-    /**
-     * Search for states... use $timeout to simulate
-     * remote dataservice call.
-     */
-    function querySearch(query) {
-        var results = query ? self.states.filter(createFilterFor(query)) : self.states,
-            deferred;
-        if (self.simulateQuery) {
-            deferred = $q.defer();
-            $timeout(function() {
-                deferred.resolve(results);
-            }, Math.random() * 1000, false);
-            return deferred.promise;
-        } else {
-            return results;
-        }
-    }
-
-    function searchTextChange(text) {
-        $log.info('Text changed to ' + text);
-    }
-
-    function selectedItemChange(item) {
-        $log.info('Item changed to ' + JSON.stringify(item));
-    }
-
-    /**
-     * Build `states` list of key/value pairs
-     */
-    function loadAll() {
-        var allStates = 'Alabama, Alaska, Arizona, Arkansas, California, Colorado, Connecticut, Delaware,\
-              Florida, Georgia, Hawaii, Idaho, Illinois, Indiana, Iowa, Kansas, Kentucky, Louisiana,\
-              Maine, Maryland, Massachusetts, Michigan, Minnesota, Mississippi, Missouri, Montana,\
-              Nebraska, Nevada, New Hampshire, New Jersey, New Mexico, New York, North Carolina,\
-              North Dakota, Ohio, Oklahoma, Oregon, Pennsylvania, Rhode Island, South Carolina,\
-              South Dakota, Tennessee, Texas, Utah, Vermont, Virginia, Washington, West Virginia,\
-              Wisconsin, Wyoming';
-
-        return allStates.split(/, +/g).map(function(state) {
-            return {
-                value: state.toLowerCase(),
-                display: state
-            };
+    (function getCityInformation() {
+      var cities = [];
+      $http.get('/api/v1/cities').success(function(data) {
+        cities = (JSON.parse(data.info)).Cities || [];
+        self.states = cities.map(function(state) {
+          return {
+            value: state.code,
+            display: state.code + '-' + state.countryName
+          };
         });
-    }
+      }).error(function(err) {
+        $scope.showSimpleToast('Error: ' +
+          JSON.stringify(err) +
+          '. Try again!');
+      });
+    })();
 
-    /**
-     * Create filter function for a query string
-     */
+    self.querySearch = function(query) {
+      var results = query ?
+        self.states.filter(createFilterFor(query)) :
+        self.states;
+
+      return results;
+    };
+
     function createFilterFor(query) {
-        var lowercaseQuery = angular.lowercase(query);
-
-        return function filterFn(state) {
-            return (state.value.indexOf(lowercaseQuery) === 0);
-        };
-
+      var lowercaseQuery = angular.lowercase(query);
+      return function filterFn(state) {
+        return ((angular.lowercase(state.value)).indexOf(lowercaseQuery) === 0);
+      };
     }
-};
