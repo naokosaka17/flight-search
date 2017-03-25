@@ -20,10 +20,10 @@
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.1/js/materialize.min.js"></script>
 
-
+    <!-- Fabicon -->
+    <link rel="icon" type="image/png" href="./layout/images/favicon.png" />
     <!-- Font -->
     <link href="https://fonts.googleapis.com/css?family=Berkshire+Swash|IM+Fell+Double+Pica" rel="stylesheet">
-
     <!-- Custom css -->
     <link rel="stylesheet" href="./layout/assets/styles/layout.css">
 </head>
@@ -36,8 +36,8 @@
         </md-toolbar>
         <!-- The content area -->
         <div class="body" layout="row">
-            <!-- 5% padding to the left -->
-            <div flex="5"></div>
+            <!-- 15% padding to the left -->
+            <div flex="15"></div>
 
             <!-- The main action happens here -->
             <md-card flex ng-controller="MainCtrl as ctrl">
@@ -97,14 +97,12 @@
                     </md-content>
                 </md-card-content>
             </md-card>
-            <!-- 50% padding to the right -->
-            <div flex="5"></div>
+            <!-- 15% padding to the right -->
+            <div flex="15"></div>
         </div>
-        <md-toolbar class="md-medium-tall">
-            <div id="footer" layout="row" layout-align="center center" flex>
-                <p class="text">Nao Kosaka</p>
-            </div>
-        </md-toolbar>
+        <div id="footer" layout="row" layout-align="center center" flex>
+            <p class="text">Nao Kosaka</p>
+        </div>
     </md-content>
 
     <script src="./app.js"></script>

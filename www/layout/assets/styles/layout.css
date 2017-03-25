@@ -1,4 +1,4 @@
-.body {
+body, .body{
     background-color: #ccf2ff;
 }
 
@@ -54,6 +54,10 @@
 
 #footer {
     background-color: #ccf2ff;
+    margin-bottom: 0px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
 }
 
 p{
