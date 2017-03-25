@@ -1,4 +1,4 @@
-body, .body{
+body, .body {
     background-color: #ccf2ff;
 }
 
@@ -17,39 +17,65 @@ body, .body{
     0% {
         color: #D80DFF;
     }
-    10% {
+    5% {
         color: #E80C9A;
     }
-    20% {
+    10% {
         color: #FF0000;
     }
-    30% {
+    15% {
         color: #E8350C;
     }
-    40% {
+    20% {
         color: #FF6000;
     }
-    50% {
+    25% {
         color: #FFEA01;
     }
-    60% {
+    30% {
         color: #67E80B;
     }
-    70% {
+    35% {
         color: #01FF5E;
     }
-    80% {
+    40% {
         color: #08D9E8;
     }
-    90% {
+    45% {
         color: #0C4FFF;
     }
-    100% {
+    50% {
         color: #F400FF;
     }
+    60% {
+        color: #D80DFF;
+    }
+    65% {
+        color: #E80C9A;
+    }
+    70% {
+        color: #FF0000;
+    }
+    85% {
+        color: #E8350C;
+    }
+    90% {
+        color: #FF6000;
+    }
+    95% {
+        color: #FFEA01;
+    }
+    100% {
+        color: #67E80B;
+    }
 }
-.text{
-  font-family: 'IM Fell Double Pica', serif;
+
+.text {
+    font-family: 'IM Fell Double Pica', serif;
+}
+
+#color {
+    background-color: #ff3399
 }
 
 #footer {
@@ -60,6 +86,6 @@ body, .body{
     width: 100%;
 }
 
-p{
-    color:  #ff99bb;
+p {
+    color: #ff99bb;
 }
