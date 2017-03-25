@@ -1,4 +1,61 @@
-.title{
-  font-family: 'Sail', cursive;
-  font-size: 50px;
+.body {
+    background-color: #ccf2ff;
+}
+
+#title {
+    background-color: #ccf2ff;
+}
+
+.color {
+    font-family: 'Berkshire Swash', cursive;
+    animation-name: rainbow;
+    animation-duration: 90s;
+    color: #E80C9A;
+}
+
+@keyframes rainbow {
+    0% {
+        color: #D80DFF;
+    }
+    10% {
+        color: #E80C9A;
+    }
+    20% {
+        color: #FF0000;
+    }
+    30% {
+        color: #E8350C;
+    }
+    40% {
+        color: #FF6000;
+    }
+    50% {
+        color: #FFEA01;
+    }
+    60% {
+        color: #67E80B;
+    }
+    70% {
+        color: #01FF5E;
+    }
+    80% {
+        color: #08D9E8;
+    }
+    90% {
+        color: #0C4FFF;
+    }
+    100% {
+        color: #F400FF;
+    }
+}
+.text{
+  font-family: 'IM Fell Double Pica', serif;
+}
+
+#footer {
+    background-color: #ccf2ff;
+}
+
+p{
+    color:  #ff99bb;
 }
