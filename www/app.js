@@ -69,7 +69,7 @@ controller('MainCtrl', function($rootScope, $scope, $mdToast, $animate, $http, $
         if ($scope.results.status) {
           $scope.fareinfo = JSON.parse($scope.data).FareInfo;
           console.log($scope.fareinfo);
-          $scope.showSimpleToast('Successfully got flight info');
+          $scope.showSimpleToast('Yay! You got flight info');
         } else {
           $scope.showSimpleToast('Error: ' +
             JSON.parse($scope.data.data).message +

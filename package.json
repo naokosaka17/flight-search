@@ -22,7 +22,7 @@
     "keygenerator": "^1.0.2",
     "memory-cache": "0.0.5",
     "method-override": "latest",
-    "mongoose": "latest",
+    "mongoose": "^4.9.3",
     "mongoose-rbac": "~0.1.0",
     "morgan": "latest",
     "mstring": "^0.1.2",

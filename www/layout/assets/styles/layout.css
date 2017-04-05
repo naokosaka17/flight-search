@@ -1,9 +1,10 @@
 body, .body {
-    background-color: #ccf2ff;
+  background: linear-gradient(-45deg, rgb(175, 164, 223), rgb(162, 226, 203)) fixed
 }
 
+
 #title {
-    background-color: #ccf2ff;
+  background: linear-gradient(-45deg, rgb(175, 164, 223), rgb(162, 226, 203)) fixed
 }
 
 .color {
@@ -11,6 +12,7 @@ body, .body {
     animation-name: rainbow;
     animation-duration: 90s;
     color: #E80C9A;
+    text-shadow: 2px 2px #d9d9d9;
 }
 
 @keyframes rainbow {
@@ -79,7 +81,7 @@ body, .body {
 }
 
 #footer {
-    background-color: #ccf2ff;
+  background: linear-gradient(-45deg, rgb(175, 164, 223), rgb(162, 226, 203)) fixed
     margin-bottom: 0px;
     position: fixed;
     bottom: 0;
@@ -87,5 +89,5 @@ body, .body {
 }
 
 p {
-    color: #ff99bb;
+    color: #ff0066;
 }

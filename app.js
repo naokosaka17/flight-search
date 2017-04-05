@@ -3,6 +3,8 @@
   var express = require('express');
   var app = express();
   var port = 3000;
+  var mongoose = require("mongoose")
+  var Favorite = require('./www/models/Favorite.js');
 
   require('./config/config_app')(app);
   require('./config/config_routes')(app);
